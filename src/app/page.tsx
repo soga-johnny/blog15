@@ -11,15 +11,14 @@ export default async function Home() {
   <div>
     <h1>This is TOP page of blog15</h1>
 
-    <div>
+    
     {projects.map((project) => (
       <Link href={`/projects/${project.slug}`} key={project._id}>
-       <div>
-        <div>
+       
+        <h2>
         {project.name}
-        </div>
+        </h2>
       {project.image && (
-        
         <Image 
         src={project.image}
         alt={project.name}
@@ -27,10 +26,9 @@ export default async function Home() {
         height={200}
         />
       )}
-      </div>
       </Link>
     ))}
-     </div>
+     
   </div>
   );
 }
