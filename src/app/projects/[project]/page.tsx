@@ -4,6 +4,7 @@ import { getProject } from "../../../../sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "./page.module.css"
 
 
 type Props = {
@@ -17,11 +18,7 @@ export default async function Project ({ params }: Props ) {
     
     return (
         <div>
-            <h2>{project.name}</h2>
-            <div>
-                <PortableText value = {project.content} />
-                </div>
-                <a
+            <a
             href={project.url}
             title="Pinterest"
             target="_blank"
@@ -36,6 +33,17 @@ export default async function Project ({ params }: Props ) {
             height={500}
             />
             <Link href="/" >Home</Link>
+
+            <div className={styles.details}>
+            <details>
+                <summary>
+                <h2>{project.name}</h2>
+                </summary>
+                <div>
+                <PortableText value = {project.content} />
+                </div>
+            </details>
+            </div>
         </div>
     )
 }

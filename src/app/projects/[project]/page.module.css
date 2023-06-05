@@ -1,0 +1,51 @@
+.details details {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 16px;
+}
+
+.details details > summary {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    /* background: white; */
+    border-radius: 6px;
+    padding: 6px 10px;
+}
+
+.details details > summary::-webkit-details-marker {
+    display: none;
+  }
+  
+.details details > summary:after {
+    content: "Menu";
+    display: inline-block;
+    margin-left: auto;
+    font-size: 16px;
+    color: white;
+    transition: transform 0.1s;
+}
+
+.details details[open] > summary:after {
+    content: "Close";
+}
+
+.details details > summary + div {
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out;
+  }
+
+.details details[open] > summary + div {
+    grid-template-rows: 1fr;
+}
+
+.details details > summary + div > div {
+    overflow: hidden;
+  }
